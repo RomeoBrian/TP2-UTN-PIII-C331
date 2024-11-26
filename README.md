@@ -1,189 +1,81 @@
 <img src="assets/utn_logo.svg" width="150">
-<br/>
-<br/>
+# API - Objetos y Variantes
 
-# Trabajo Práctico Parte 2 — Node.js Express
+## La Siguiente API esta preparada para menejar los objetos para un formato de juego RPG y Variantes de los objetos base. La api tiene un formato CRUD para poder crear, leer, actualizar y borrar. 
 
-## Objetivo
+## dependencias:
+Las siguientes son las dependencias que encontraras en el projecto
+- **Node.js**: JavaScript runtime environment for server-side programming.
+- **Express**: Framework for building web applications and APIs.
+- **CORS**: Middleware to allow requests from different origins.
+- **MySQL2**: Client for interacting with MySQL databases.
+- **Sequelize**: ORM for managing SQL databases.
+- **dotenv**: Loads environment variables from a .env file.
+- **Nodemon**: Tool that automatically restarts the application when file changes are detected.
+- **Swagger**: Tool that automatically generates APIRest Docs.
+- **Ejs**: Embedded JavaScript templating.
 
-El objetivo de este trabajo práctico es que los estudiantes desarrollen una API utilizando Node.js, Express, MySQL y Sequelize, demostrando sus conocimientos en el manejo del backend, estructura de proyectos y operaciones CRUD.
+```plaintext 
+├── controllers/  
+├── models/       
+├── routes/       
+├── data/
+├── public/
+├── views/        
+└── app.js     
+```
 
-Se valorará la organización del código, el uso de buenas prácticas y la implementación de funcionalidades adicionales especificadas.
-<br/>
-<br/>
+## Utilizacion
 
-## Requisitos
+En primera instancia se debera clonar este repositorio 
+```
+git clone https://github.com/RomeoBrian/TP2-UTN-PIII-C331.git
+```
+Una vez clonado el repositorio se debe configurar el archivo .env
+En este archivo se encuentran las configuraciones de la db y el puerto al que apunta la api
 
-### **Stack Tecnológico Obligatorio**
+Luego se debera instalar las dependencias con el siguiente comando:
+```
+npm i
+```
 
-- Node.js
-- Express.js
-- MySQL
-- Sequelize ORM
+## Para poder generar la base de datos se dejo en la ruta data/ el archivo database.sql
 
-**Opcional:** Puede incluir otras herramientas y librerías (como Dotenv, Postman para probar la API, etc.).
-<br/>
-<br/>
+este archivo se debera correr en mysql workbecnh o su gestor de base de datos 
 
-## Desarrollo del trabajo práctico
+## Antes de empezar a usar la api
 
-- Se deberá clonar o "forkear" este repositorio para poder modificarlo y completarlo con la resolución del proyecto.
-- Una vez que su código esté listo, suba el código a un repositorio público propio y envíenos el enlace a dicho repositorio para que lo revisemos.
-  <br/>
-  <br/>
+En principio se debe iniciar el servidor con el siguiente comando
 
-## Trabajo Práctico
+```
+nodemon app.js
+```
 
-**Crear una API temática libre**
+una vez iniciado si se dirigue a [localhost:3030/](http://localhost:3030/) Se encontrara con la documentacion en Swagger en el mismo puede probar las distintas rutas
 
-Elija un tema para su API.
-Ejemplo: una biblioteca digital, gestión de películas, catálogo de productos, etc.
+en principio se recomienda correr el post tanto para objetos como para variantes, en los mismos tiene la posibilidad de mediante una query 
+```
+/objetos?startData=si
+/variantes?startData=si
+```
 
-<br/>
+Esto cargara los datos iniciales para que pueda empezar a probar la api, 
 
-**Estructura de Carpetas**
+en caso de no querer cargarlo mediante este metodo siempre puede ver los archivos en:
+```
+/data/objetos.json
+/data/variantes.json
+```
 
-Organice el proyecto respetando esta estructura básica:
+En estos encontrara los datos que se cargan automaticamene en la db con el otro comando, y puede cargarlos manualmente
 
-src/<br/>
-├── controllers/<br/>
-├── models/<br/>
-├── routes/<br/>
-├── data/<br/>
-└── app.js<br/>
+## Para finalizar se agrego tambien una vista a la api para que vea su uso
 
-## Detalles
+La misma se encuentra en la ruta
+```
+http://localhost:3030/variaciones/random
+```
 
-**Base de Datos**
+En esta encontrara un cofre que al abrir traera de forma aleatoria una variante con sus detalles, pruebe su userte.
 
-Se debe realizar la conexión con una base de datos **MySQL**.
 
-<br/>
-
-**Modelos**
-
-Necesitará construir los siguientes Modelos:
-
-<br/>
-
-- Un modelo que represente una entidad principal de su temática **Minimo 6 propiedades**
-  <br/>
-
-  > Deberá incluir lo siguiente:
-  >
-  > - `id` (autoincremental)
-  > - `createdAt` (fecha de creación, automática)
-  > - `updatedAt` (fecha de actualización, automática)
-  > - `type/categorie` (campo tipo o categoría, personalizado)
-  > - `status` (mínimo 2 opciones: `active`, `inactive`)
-  > - 1 propiedad adicional (de acuerdo al tema elegido).
-
-<br/>
-<br/>
-
-- Un modelo para manejar autores **Minimo 5 propiedades**
-  <br/>
-
-  > Deberá incluir lo siguiente:
-  >
-  > - `id` (autoincremental)
-  > - `createdAt` (fecha de creación, automática)
-  > - `updatedAt` (fecha de actualización, automática)
-  > - `name` (nombre del autor)
-  > - `surname` (apellido del autor)
-
-<br/>
-<br/>
-
-**Rutas y Controladores**
-
-Necesitará construir las siguientes Rutas y Controladores:
-
-- Rutas para el Modelo Personalizado **Minimo 5 rutas**
-  <br/>
-
-  > Deberá incluir lo siguiente:
-  >
-  > - Crear un registro
-  > - Actualizar por ID
-  > - Leer todos los registros
-  > - Leer un registro por ID
-  > - Eliminar un registro por ID
-
-<br/>
-<br/>
-
-- Rutas para el Modelo Autor **Minimo 4 rutas**
-  <br/>
-
-  > Deberá incluir lo siguiente:
-  >
-  > - Crear un autor
-  > - Leer todos los autores
-  > - Leer un autor por ID
-  > - Eliminar un autor por ID
-
-<br/>
-<br/>
-
-## Opcionales
-
-**Query Params**
-
-Incluya las siguientes funcionalidades adicionales en las rutas de **"Leer todos los registros"** para el modelo personalizado:
-
-1. **Paginado**
-
-   - Permita la paginación con parámetros `page` y `limit`.
-
-2. **Ordenado por Fecha de Creación**
-
-   - Soporte para ordenar por `createdAt` de forma ascendente (`ASC`) o descendente (`DESC`) mediante un parámetro `sort`.
-
-3. **Filtrado por `type/categorie`**
-
-   - Permita filtrar los registros según el valor del campo `type/categorie` utilizando un parámetro `type`.
-
-4. **Filtrado por `status`**
-   - Permita filtrar los registros según el estado (`active`, `inactive`) utilizando un parámetro `status`.
-
-El resultado final deberia verse como: <br/>
-`GET /modeloPersonalizado?page=2&limit=5&sort=DESC&type=category1&status=active`
-<br/>
-<br/>
-
-**Relación Autor-Modelo Personalizado (1:N)**
-
-1. Al crear un registro en el modelo personalizado, asócielo a un autor existente mediante su `idAutor`.
-
-<br/>
-<br/>
-
-## **Entrega**
-
-- Suba su código a un repositorio público en GitHub.
-- Incluya un archivo `README.md` con:
-  - Descripción breve de la API.
-  - Instrucciones para correr el proyecto localmente.
-  - Ejemplos de endpoints y cómo probarlos.
-- Archivos de ejemplos(seed) en formato json de cada modelo, para cargar la DDBB
-
-<br/>
-<br/>
-
-## **Comentarios Finales**
-
-Un dicho común en el desarrollo es:
-
-> "An API is just as good as its documentation"
->
-> — Common saying in backend development
-
-Por este motivo, vamos a valorar mucho este aspecto. Siéntase libre de utilizar librerías como **Swagger** para generar su documentación.
-
-<br/>
-<br/>
-
-## **Fecha de Entrega:**
-
-27/11
