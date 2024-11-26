@@ -39,9 +39,11 @@ Luego se debera instalar las dependencias con el siguiente comando:
 npm i
 ```
 
-## Para poder generar la base de datos se dejo en la ruta data/ el archivo database.sql
+## Generar la base de datos 
 
-este archivo se debera correr en mysql workbecnh o su gestor de base de datos 
+Se dejo en la ruta data/ el archivo database.sql
+
+este archivo se debera correr en mysql workbench o su gestor de base de datos 
 
 ## Antes de empezar a usar la api
 
