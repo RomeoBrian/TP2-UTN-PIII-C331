@@ -80,4 +80,10 @@ http://localhost:3030/variaciones/random
 
 En esta encontrara un cofre que al abrir traera de forma aleatoria una variante con sus detalles, pruebe su userte.
 
+## Endpoints
+Se puede encontrar los isguientes endpoints
 
+**Objetos**
+```
+GET /objetos
+POST /objetos
