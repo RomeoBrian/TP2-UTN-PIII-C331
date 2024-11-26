@@ -95,7 +95,7 @@ DELETE /objetos/{id}
 
 **Variaciones**
 ```
-GET /variaciones
+GET /variaciones || opcionales: /variaciones?limit=1&page=1&sort=DESC&rareza=comun&afinidad=mele&status=Active&tipo=arma *no es necesario poner todos los filtros, puede el que necesite 
 POST /variaciones
 GET /variaciones/{id}
 PUT /variaciones/{id}
