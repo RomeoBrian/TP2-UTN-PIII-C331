@@ -83,7 +83,27 @@ En esta encontrara un cofre que al abrir traera de forma aleatoria una variante 
 ## Endpoints
 Se puede encontrar los isguientes endpoints
 
+
 **Objetos**
 ```
 GET /objetos
 POST /objetos
+GET /objetos/{id}
+PUT /objetos/{id}
+DELETE /objetos/{id}
+```
+
+**Variaciones**
+```
+GET /variaciones
+POST /variaciones
+GET /variaciones/{id}
+PUT /variaciones/{id}
+DELETE /variaciones/{id}
+```
+
+**views**
+```
+Swagger: http://localhost:3030/
+Vista prueba de api: http://localhost:3030/variaciones/random
+```
