@@ -1,0 +1,273 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: TP2 - API - objetos y variaciones
+    url: http://localhost:3030/
+info:
+  description: TP2 - UTN
+  version: "1.0.0"
+  title: TP2 - UTN - API Objetos y Variaciones
+tags:
+    - name: objetos
+      description: gestion del model objetos
+    - name: variaciones
+      description: gestion del model variaciones  
+    - name: variaciones/random
+      description: http://localhost:3030/variaciones/random Prueba de caso de uso de la api
+paths:
+  /objetos:
+    get:
+      tags:
+        - objetos
+      summary: trae todos los objetos cargados en la db
+      responses:
+        '200':
+          description: una lista de todos los objetos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/objeto'
+        '400':
+          description: bad input parameter 
+    post:
+      tags:
+        - objetos
+      summary: agrega un objeto a la db
+      parameters:
+        - in: query
+          name: startData
+          description: se indica si se quiere cargar los datos iniciales de la bd
+          schema:
+            type: string
+            enum: [si]
+      responses:
+        '201':
+          description: objeto created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/objeto'
+        description: Inventory item to add
+  /objetos/{id}:
+    get:
+      tags:
+        - objetos
+      summary: trae un objeto cargados en la db
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: objeto ID
+        - in: query
+          name: variaciones
+          description: si se quiere traer las variaciones(modelo asosiado) del objeto o no
+          schema:
+            type: string
+            enum: [si]
+      responses:
+        '200':
+          description: una array con el objeto pedido
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/objeto'
+        '400':
+          description: bad input parameter 
+    put:
+      tags:
+        - objetos
+      summary: modifica un objeto a la db
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: objeto ID
+      responses:
+        '200':
+          description: actualizacion del dato solucitado
+        '400':
+          description: bad input parameter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/objeto'
+        description: Inventory item to add
+    delete:
+      tags:
+        - objetos
+      summary: elimina un objeto a la db
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: objeto ID
+      responses:
+        '200':
+          description: objeto eliminado
+        '400':
+          description: bad input parameter
+  /variaciones:
+    get:
+      tags:
+        - variaciones
+      summary: trae todos los objetos cargados en la db
+      responses:
+        '200':
+          description: una lista de todos los objetos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/variaciones'
+        '400':
+          description: bad input parameter 
+    post:
+      tags:
+        - variaciones
+      summary: agrega una variacion a la db
+      parameters:
+        - in: query
+          name: startData
+          description: se indica si se quiere cargar los datos iniciales de la bd
+          schema:
+            type: string
+            enum: [si]
+      responses:
+        '201':
+          description: variacion created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/variacion'
+        description: Inventory item to add
+  /variaciones/{id}:
+    get:
+      tags:
+        - variaciones
+      summary: trae una variacion cargada en la db
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: objeto ID
+      responses:
+        '200':
+          description: una array con la variacion pedida
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/variacion'
+        '400':
+          description: bad input parameter 
+    put:
+      tags:
+        - variaciones
+      summary: modifica una variacion a la db
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: objeto ID
+      responses:
+        '200':
+          description: actualizacion del dato solicitado
+        '400':
+          description: bad input parameter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/variacion'
+        description: Inventory item to add
+    delete:
+      tags:
+        - variaciones
+      summary: elimina una variacion de la db
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: objeto ID
+      responses:
+        '200':
+          description: variacion eliminado
+        '400':
+          description: bad input parameter
+
+components:
+  schemas:
+    objeto:
+      type: object
+      required:
+        - nombre
+        - tipo
+      properties:
+        nombre:
+          type: string
+          example: Espada
+        tipo:
+          type: string
+          example: arma
+
+    variacion:
+      type: object
+      required:
+        - nombreVariacion
+        - descripcion
+        - status
+        - afinidad
+        - poder
+        - rareza
+        - objetoId
+      properties:
+        nombreVariacion:
+          type: string
+          example: Espada en llamas carmesi
+        descripcion:
+          type: string
+          example: Una espada envuelta en llamas del fenix carmesi
+        status:
+          type: string
+          example: Enum(Active,Inactive)
+        afinidad: 
+          type: string
+          example: mele
+        poder:
+          type: integer
+          example: 100
+        rareza:
+          type: string
+          example: Enum(comun,raro,poco comun,epico,legendario)
+        objetoId:
+          type: integer
+          example: 1

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chest Opening</title>
+    <link rel="stylesheet" href="/css/cofre.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cofre del tesoro</h1>
+        <h2>Abri el cofre y saca una recompensa Random</h2>
+        <div class="chest" id="chest">
+            <div class="lid"></div>
+            <div class="base">
+                <div class="keyhole"></div>
+            </div>
+        </div>
+        <button id="openChestButton">Abrir Cofre</button>
+        <div class="card" id="card">
+            <div class="card-content">
+                <h2 id="cardTitle">
+                    <%= data.nombreVariacion %>
+                </h2>
+                <p id="cardDescription">
+                    <label for="">descripcion:</label><br>
+                    <%= data.descripcion %>
+                </p>
+                <hr>
+                <p id="cardPoder">
+                    <label for="">poder:</label>
+                    <%= data.poder %>
+                </p>
+                <hr>
+                <p id="cardRareza">
+                    <label for="">rareza:</label>
+                    <%= data.rareza %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="/js/cofre.js"></script>
+</body>
+
+</html>

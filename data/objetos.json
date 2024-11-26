@@ -1,0 +1,107 @@
+[
+	{
+		"id" : 1,
+		"nombre" : "Espada",
+		"tipo" : "arma",
+		"createdat" : "2024-11-21 20:42:37",
+		"updatedat" : "2024-11-21 20:48:43"
+	},
+	{
+		"id" : 2,
+		"nombre" : "Pocion",
+		"tipo" : "consumible",
+		"createdat" : "2024-11-22 03:25:25",
+		"updatedat" : "2024-11-22 03:25:25"
+	},
+	{
+		"id" : 3,
+		"nombre" : "Fuego",
+		"tipo" : "magia",
+		"createdat" : "2024-11-22 04:17:51",
+		"updatedat" : "2024-11-22 20:15:14"
+	},
+	{
+		"id" : 4,
+		"nombre" : "Arco",
+		"tipo" : "arma",
+		"createdat" : "2024-11-22 04:24:50",
+		"updatedat" : "2024-11-22 04:24:50"
+	},
+	{
+		"id" : 5,
+		"nombre" : "dagas",
+		"tipo" : "arma",
+		"createdat" : "2024-11-22 04:24:59",
+		"updatedat" : "2024-11-22 04:24:59"
+	},
+	{
+		"id" : 6,
+		"nombre" : "Curacion",
+		"tipo" : "magia",
+		"createdat" : "2024-11-22 04:25:14",
+		"updatedat" : "2024-11-22 04:25:14"
+	},
+	{
+		"id" : 7,
+		"nombre" : "Escudo",
+		"tipo" : "arma",
+		"createdat" : "2024-11-22 04:25:29",
+		"updatedat" : "2024-11-22 04:25:29"
+	},
+	{
+		"id" : 8,
+		"nombre" : "Comida",
+		"tipo" : "consumible",
+		"createdat" : "2024-11-22 04:26:15",
+		"updatedat" : "2024-11-22 04:26:15"
+	},
+	{
+		"id" : 9,
+		"nombre" : "Baculo",
+		"tipo" : "arma",
+		"createdat" : "2024-11-22 04:26:31",
+		"updatedat" : "2024-11-22 04:26:31"
+	},
+	{
+		"id" : 10,
+		"nombre" : "Mandoble",
+		"tipo" : "arma",
+		"createdat" : "2024-11-22 04:26:52",
+		"updatedat" : "2024-11-22 04:26:52"
+	},
+	{
+		"id" : 11,
+		"nombre" : "Congelacion",
+		"tipo" : "magia",
+		"createdat" : "2024-11-22 04:27:28",
+		"updatedat" : "2024-11-22 04:27:28"
+	},
+	{
+		"id" : 12,
+		"nombre" : "Cofre",
+		"tipo" : "tesoro",
+		"createdat" : "2024-11-22 04:27:49",
+		"updatedat" : "2024-11-22 04:27:49"
+	},
+	{
+		"id" : 13,
+		"nombre" : "Oro",
+		"tipo" : "tesoro",
+		"createdat" : "2024-11-22 04:28:01",
+		"updatedat" : "2024-11-22 04:28:01"
+	},
+	{
+		"id" : 14,
+		"nombre" : "Trofeo",
+		"tipo" : "tesoro",
+		"createdat" : "2024-11-22 04:28:21",
+		"updatedat" : "2024-11-22 04:28:21"
+	},
+	{
+		"id" : 15,
+		"nombre" : "katana",
+		"tipo" : "arma",
+		"createdat" : "2024-11-25 21:20:14",
+		"updatedat" : "2024-11-25 21:20:14"
+	}
+]
