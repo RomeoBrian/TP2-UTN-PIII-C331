@@ -128,41 +128,41 @@ paths:
         - variaciones
       summary: trae todos los objetos cargados en la db
       parameters:
-      - in: query
+        - in: query
           name: limit
           description: para establecer el limite de busqueda
           schema:
             type: integer
-      - in: query
+        - in: query
           name: page
           description: para establecer el offset de busqueda
           schema:
             type: integer
-      - in: query
+        - in: query
           name: sort
           description: para el ordenamiento ASC, o DESC
           schema:
             type: string
             enum: [DESC,ASC]
-      - in: query
+        - in: query
           name: rareza
           description: parametro para la busqueda en el select por rareza
           schema:
             type: string
             enum: [comun,raro,poco comun,epico,legendario]
-      - in: query
+        - in: query
           name: afinidad
           description: parametro para la busqueda en el select por afinidad
           schema:
             type: string
             enum: [mele,rango,magia,alquimia]
-      - in: query
+        - in: query
           name: status
           description: parametro para la busqueda en el select por status
           schema:
             type: string
             enum: [Active,Inactive]
-      - in: query
+        - in: query
           name: tipo
           description: parametro para la busqueda en el select por tipo, ademas agrega la tabla base a la busqueda
           schema:
